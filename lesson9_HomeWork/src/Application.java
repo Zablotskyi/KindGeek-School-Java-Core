@@ -1,26 +1,32 @@
 import model.Book;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Application {
+    private static final String DIRECTORY = "lesson9_HomeWork//";
     Book book;
     File file;
 
     public void addDescriptionBook(Book book) throws IOException {
         Scanner scanner = new Scanner(System.in);
         String description;
-        File file = new File("//lesson9_HomeWork/" + book.getName() + ".txt");
+        File file = new File(DIRECTORY + book.getName() + ".txt");
         if (!file.exists()) {
             file.createNewFile();
         }
         System.out.println("Додайте опис до книги:");
         description = scanner.nextLine();
 
+        FileWriter fileWriter = new FileWriter(file, true);
+        fileWriter.append(description);
+
         scanner.close();
-//        System.out.println("Введіть Призвище автора або назву книги до яких треба додати опис:");
-//        name = scanner.nextLine();
+        fileWriter.close();
+
+
     }
 
 //    public Author findAuthor(String authorName) {

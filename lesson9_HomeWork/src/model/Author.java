@@ -13,20 +13,20 @@ public class Author {
     private String bookName;
     private List<Book> bookList = new ArrayList<>();
 
-    public Author(long id, String name, String lastName) {
+    public Author(String name, String lastName) {
         this.id = count;
         this.name = name;
         this.lastName = lastName;
         count++;
     }
 
-    public Author(long id, String name, String lastName, String bookName) {
+    public Author(String name, String lastName, String bookName) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.bookName = bookName;
-        book.setName(bookName);
-        bookList.add(book);
+//        book.setName(bookName);
+//        bookList.add(book);
     }
 
     public Book getBook() {

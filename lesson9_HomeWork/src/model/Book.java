@@ -16,20 +16,20 @@ public class Book {
         this.id = count;
         this.name = name;
         this.yearOfPrinting = yearOfPrinting;
-        this.author.setName(author.getName());
-        this.author.setLastName(author.getLastName());
-        this.author.setBookName(name);
-        authorList.add(author);
+//        this.author.setName(author.getName());
+//        this.author.setLastName(author.getLastName());
+//        this.author.setBookName(name);
+//        authorList.add(author);
         count++;
     }
 
-    public Book(Author author, String name) {
+    public Book(String name, Author author) {
         this.id = count;
         this.name = name;
-        this.author.setName(author.getName());
-        this.author.setLastName(author.getLastName());
-        this.author.setBookName(name);
-        authorList.add(author);
+//        this.author.setName(author.getName());
+//        this.author.setLastName(author.getLastName());
+//        this.author.setBookName(name);
+//        authorList.add(author);
         count++;
     }
 
