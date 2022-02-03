@@ -13,7 +13,7 @@ public class Application {
     public void addDescriptionBook(Book book) throws IOException {
         Scanner scanner = new Scanner(System.in);
         String description;
-        File file = new File(DIRECTORY + book.getName() + ".txt");
+        File file = new File(DIRECTORY + "description_" + book.getName() + ".txt");
         if (!file.exists()) {
             file.createNewFile();
         }
@@ -25,8 +25,6 @@ public class Application {
 
         scanner.close();
         fileWriter.close();
-
-
     }
 
 //    public Author findAuthor(String authorName) {
