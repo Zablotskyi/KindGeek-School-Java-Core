@@ -14,6 +14,6 @@ public class Main {
         Book book2 = new Book("Database Basics", new Author("Olga", "Piniagina"));
         Book book3 = new Book("GIT for a professional programmer", new Author("Scott", "Chacon"));
 
-        application.addDescriptionBook(book1);
+        application.addDescriptionBook(book3);
     }
 }

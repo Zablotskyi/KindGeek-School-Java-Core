@@ -21,7 +21,7 @@ public class Application {
         description = scanner.nextLine();
 
         FileWriter fileWriter = new FileWriter(file, true);
-        fileWriter.append(description);
+        fileWriter.append(description + "\n");
 
         scanner.close();
         fileWriter.close();
