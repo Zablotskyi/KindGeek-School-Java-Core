@@ -4,6 +4,8 @@ import model.Book;
 import java.io.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -60,20 +62,39 @@ public class Application {
         System.out.println("Клас нашого об'єкту: " + cl.getName());
         //витягаємо суперклас (батько нашого класу)
         System.out.println("Клас нашого предка: " + cl.getSuperclass().getName());
-        //витягаєме інтерфейс котрий імплементує наш клас
+        //витягаємо інтерфейс котрий імплементує наш клас
         System.out.println("Інтерфейс котрий ми імплементуємо у нашого класа: " + Arrays.toString(cl.getInterfaces()));
         //витягаємо всі конструктори котрі є в нашому класі
         System.out.println("конструктори котрі є в нашому класі");
         for(Constructor<?> constructor : cl.getConstructors()) {
             System.out.println(Arrays.toString(constructor.getParameters()));
         }
+        //витягаємо наші публічні філди нашого класу
+//        Field publicFieldName = cl.getField("name");
         //витягаємо наші приватні філди нашого класу
-        Field fieldName = cl.getDeclaredField("name");
-        fieldName.setAccessible(true);
+        //якщо треба витягнути одне поле
+        Field privateFieldName = cl.getDeclaredField("name");
+        privateFieldName.setAccessible(true);
         //витягаємо поле name нашої книги
-        System.out.println(fieldName.get(bookReflection));
-//        Field fieldYear = cl.getDeclaredField("yearOfPrinting");
-//        //витягаємо поле yearOfPrinting нашої книги
-//        System.out.println(fieldYear.get(bookReflection));
+        System.out.println(privateFieldName.get(bookReflection));
+        //якщо треба витягнути всі поля нашого класу
+//        for(Field nextField : cl.getDeclaredFields()) {
+//            nextField.setAccessible(true);
+//            System.out.println(nextField.getName() + " = " + nextField.get(bookReflection));
+//        }
+        //змінюємо наше приватне поле
+        privateFieldName.set(bookReflection, "Java Base Java");
+        System.out.println("Нова назва книги: " + bookReflection.getName());
+        //витягаємо методи нашого класу
+        for (Method method : cl.getMethods()) {
+            System.out.println(method.getName());
+            System.out.println(Arrays.toString(method.getParameters()));
+            //витягаємо параментри, котрі передаються в методи (якщо вони є)
+            for (Parameter parameter : method.getParameters()) {
+                System.out.println(parameter.getType() + " " + parameter.getName() + " ,");
+            }
+            System.out.println();
+            System.out.println("________________________________________________________");
+        }
     }
 }
