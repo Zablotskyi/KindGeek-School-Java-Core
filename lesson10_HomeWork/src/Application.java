@@ -50,6 +50,7 @@ public class Application extends Thread {
             System.out.println("_________________________________________");
             Thread.sleep(1000);
             sortedDescPrice();
+            System.out.println("\n" + Thread.currentThread().getName() + " finished");
         } catch (MyException | InterruptedException e) {
             e.printStackTrace();
         }
