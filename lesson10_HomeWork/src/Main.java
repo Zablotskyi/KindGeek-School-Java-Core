@@ -5,7 +5,12 @@ public class Main {
         Application application = new Application();
         Thread myThread = new Thread();
 
-        myThread.start();
-        application.run();
+        try {
+            application.start();
+            Thread.currentThread().join(4000);
+            System.out.println(Thread.currentThread().getName() + " finished");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
