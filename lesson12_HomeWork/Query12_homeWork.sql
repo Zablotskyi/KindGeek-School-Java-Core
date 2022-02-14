@@ -15,12 +15,12 @@ name varchar(100),
 yearOfPrinting int
 );
 
-create table author_to_book(
-id_author int,
-id_book int
+create table authorToBook(
+idAuthor int,
+idBook int
 );
 
-alter table author_to_book add constraint foreign key(id_author) references authors(id);
-alter table author_to_book add constraint foreign key(id_book) references books(id);
+alter table authorToBook add constraint foreign key(idAuthor) references authors(id);
+alter table authorToBook add constraint foreign key(idBook) references books(id);
 
 
