@@ -56,3 +56,4 @@ insert into authorToBook(idAuthor, idBook) values
 (1, 5),
 (4, 6),
 (4, 7);
+
