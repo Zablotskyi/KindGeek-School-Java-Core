@@ -57,3 +57,50 @@ insert into authorToBook(idAuthor, idBook) values
 (4, 6),
 (4, 7);
 
+-- всі автори
+select * from authors;
+-- всі книги
+select * from books;
+-- книги після 2010 року випуску 
+select * from books where yearOfPrinting > 2010;
+-- книги з 2005 по 2011 рік випуску
+select * from books where yearOfPrinting > 2005 and yearOfPrinting < 2011;
+-- книги котрі містять у назві слово Java
+select * from books where name like '%Java%';
+-- всі автори по алфавіту
+select * from authors order by name asc;
+-- всі книги по року випуску
+select * from books order by yearOfPrinting desc;
+-- знайти автора
+select * from authors where name like 'Gary' and lastName like 'Gregory';
+-- знайти книгу
+select * from books where name like 'Java Concurrency in Practice';
+-- всі книги де немає слова Java
+select * from books where name <> 'Java'; -- ??????????
+-- скільки книг у автора Gary Gregory
+-- -------------------------------------------------------------------------------
+-- скільки всого авторів у базі
+select count(id) from authors;
+-- скільки всього книг у базі
+select count(id) from books;
+-- найстаріша книга у базі
+select * from books order by yearOfPrinting limit 1;
+-- нові книги (2020 рік)
+select * from books where yearOfPrinting = 2020;
+-- показати перших трьох авторів
+select * from authors limit 2;
+
+-- всі книги автора
+-- автори у котрих немає книг у базі
+select * from authors a left join books b on a.id = b.id where b.name = null;
+-- автор котрий написав найстарішу книгу у базі
+-- join
+select * from authors a join books b on a.id = b.id;
+-- left join
+select * from authors a left join books b on a.id = b.id;
+-- right join
+select * from authors a right join books b on a.id = b.id;
+-- автори котрі писали книги після 2015 року
+-- автори котри писали книги по Java
+-- автори нових книг
+-- всі автори та всі книги
